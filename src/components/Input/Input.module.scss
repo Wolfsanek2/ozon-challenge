@@ -1,0 +1,22 @@
+.input-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    align-items: center;
+    gap: 2rem;
+
+    &__input {
+        height: 100%;
+        width: 3rem;
+    }
+}
+
+.input {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0.25rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    outline: none;
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+.progress {
+    &--hidden {
+        display: none;
+    }
+
+    &--animated {
+        animation: rotation var(--rotation-period, 10s) linear infinite;
+    }
+
+    &__bg {
+        stroke: var(--color-circle-bg, #e2e7eb);
+    }
+
+    &__fill {
+        stroke: var(--color-circle-fill, #005dff);
+        transition: all 0.2s;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
