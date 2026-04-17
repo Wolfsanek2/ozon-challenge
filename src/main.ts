@@ -37,7 +37,6 @@ valueInput.onInput((value) => {
 	const normalizedValue = isNaN(Number(value))
 		? 0
 		: Math.min(Math.max(Number(value), 0), 100);
-	console.log(normalizedValue);
 	valueInput.value = normalizedValue.toString();
 	progress.setValue(normalizedValue);
 });
