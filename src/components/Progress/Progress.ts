@@ -10,7 +10,7 @@ interface ProgressProps {
 }
 
 export class Progress extends BaseComponent {
-	#value: number;
+	#valueNormalized: number = 0;
 	#state: ProgressState;
 	#className: string;
 	#size = 100;
@@ -19,8 +19,7 @@ export class Progress extends BaseComponent {
 
 	constructor(props?: ProgressProps) {
 		super();
-		// Ограничение value от 0 до 100
-		this.#value = Math.min(Math.max(props?.value || 0, 0), 100);
+		this.#value = props?.value || 0;
 		this.#state = props?.state || 'normal';
 		this.#className = props?.className || '';
 	}
@@ -77,5 +76,13 @@ export class Progress extends BaseComponent {
 		return this.root?.querySelector<SVGCircleElement>(
 			`.${styles['progress__fill']}`,
 		);
+	}
+
+	get #value() {
+		return this.#valueNormalized;
+	}
+
+	set #value(value: number) {
+		this.#valueNormalized = Math.min(Math.max(value, 0), 100);
 	}
 }
